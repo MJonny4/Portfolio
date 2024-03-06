@@ -1,12 +1,12 @@
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 
 import { staggerContainer } from './motions'
 
-const StarWrapper = (Component, idName) =>
+const StarWrapper = (Component: JSX.Element, idName: string) =>
     function HOC() {
         return (
             <motion.section
-                variants={staggerContainer()}
+                variants={staggerContainer() as Variants}
                 initial="hidden"
                 whileInView="show"
                 viewport={{
@@ -18,8 +18,7 @@ const StarWrapper = (Component, idName) =>
                 <span className="hash-span" id={idName}>
                     &nbsp;
                 </span>
-
-                <Component />
+                {Component}
             </motion.section>
         )
     }
