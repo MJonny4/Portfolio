@@ -45,7 +45,7 @@ export default function Work({
                     </p>
                     <p className="text-gray-700 dark:text-gray-300">{date}</p>
                 </div>
-                <p className="mx-2 mb-2 mt-2 text-sm sm:text-base md:mx-0">
+                <p className="mx-2 mb-2 mt-2 hidden text-sm sm:text-base md:mx-0 md:block">
                     {lang === 'es'
                         ? description_es
                         : lang === 'cat'
