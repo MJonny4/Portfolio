@@ -77,7 +77,7 @@ export const projects = [
         id: 2,
         title: 'Munti Estate',
         description:
-            "A attractive real estate site for renting and selling properties, all powered by the MERN stack. It's got user logins, roles, and permissions, plus handy search and filter options to help you find your dream home.",
+            "An attractive real estate site for renting and selling properties, all powered by the MERN stack. It's got user logins, roles, and permissions, plus handy search and filter options to help you find your dream home.",
         description_es:
             'Un atractivo sitio de bienes raíces para alquilar y vender propiedades, todo impulsado por la pila MERN. Tiene inicios de sesión de usuario, roles y permisos, además de prácticas opciones de búsqueda y filtro para ayudarlo a encontrar la casa de sus sueños.',
         description_cat:
