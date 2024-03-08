@@ -1,10 +1,10 @@
 ---
 interface Props {
-    title: string;
-    lang?: string;
+    title: string
+    lang?: string
 }
 
-const { title, lang = "en" } = Astro.props;
+const { title, lang = 'en' } = Astro.props
 ---
 
 <!doctype html>
@@ -45,10 +45,10 @@ const { title, lang = "en" } = Astro.props;
         />
 
         <meta name="theme-color" content="#333" />
-        <link rel="canonical" href="https://www.ximuntion.com/" />
+        <link rel="canonical" href="https://ximuntion.com/" />
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
-        <meta name="url" content="https://www.ximuntion.com/" />
+        <meta name="url" content="https://ximuntion.com/" />
         <meta
             name="description"
             content="Ion Munteanu's personal portfolio to showcase his work and projects."
@@ -62,7 +62,7 @@ const { title, lang = "en" } = Astro.props;
 
         <meta property="og:title" content="Ion's Portfolio" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.ximuntion.com/" />
+        <meta property="og:url" content="https://ximuntion.com/" />
         <meta
             property="og:description"
             content="Ion Munteanu's personal portfolio to showcase his work and projects."
@@ -100,11 +100,11 @@ const { title, lang = "en" } = Astro.props;
     }
 
     body {
-        font-family: "Martian Mono", monospace;
+        font-family: 'Martian Mono', monospace;
         font-optical-sizing: auto;
         font-weight: 400;
         font-style: normal;
-        font-variation-settings: "wdth" 100;
+        font-variation-settings: 'wdth' 100;
 
         width: 100%;
         transition:

@@ -14,9 +14,9 @@ export default function Hero({ lang }: HeroProps) {
             className="flex w-full flex-col justify-center gap-4 rounded-lg bg-neutral-100 bg-opacity-50 p-5 shadow-md md:mt-6 lg:mt-16 lg:flex-row lg:gap-14 dark:bg-neutral-900"
         >
             <article className="order-2 mx-auto mt-5 flex w-10/12 flex-col items-center justify-center gap-y-2 text-left lg:order-1 lg:mx-0 lg:w-1/2">
-                <h2 className="w-full text-xl lg:text-4xl dark:lg:shadow-sm">
-                    Ion Munteanu
-                </h2>
+                <h1 className="w-full text-xl lg:text-4xl dark:lg:shadow-sm">
+                    <strong>Ion</strong> Munteanu
+                </h1>
                 <h3 className="w-full text-lg text-amber-400 lg:text-2xl dark:text-primary dark:lg:shadow-sm">
                     Full Stack Developer
                 </h3>

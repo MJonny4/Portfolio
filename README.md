@@ -59,3 +59,4 @@ bun astro add tailwind
 -   [x] Skills Show by Pagination
 -   [ ] When hover over description, show like a ball with negative color
 -   [ ] Make my job title write itself
+-   [ ] Add more animations / Projects["Hover", "Click", "Scroll"]
