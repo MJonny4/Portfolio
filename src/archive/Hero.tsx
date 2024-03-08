@@ -40,14 +40,14 @@ export default function Hero({ lang }: HeroProps) {
                                     target="_blank"
                                     rel="noreferrer"
                                     className="cursor-pointer transition duration-300 ease-in-out hover:animate-pulse hover:text-amber-400 dark:hover:text-primary"
-                                    download={
-                                        social.name === 'CV'
-                                            ? social.url
-                                                  .toString()
-                                                  .split('/')
-                                                  .pop()
-                                            : undefined
-                                    }
+                                    // download={
+                                    //     social.name === 'CV'
+                                    //         ? social.url
+                                    //               .toString()
+                                    //               .split('/')
+                                    //               .pop()
+                                    //         : undefined
+                                    // }
                                 >
                                     {social.icon}
                                 </a>
