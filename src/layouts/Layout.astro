@@ -4,11 +4,27 @@ interface Props {
     lang?: string
 }
 
+let language: string = ''
 const { title, lang = 'en' } = Astro.props
+
+switch (lang) {
+    case 'en':
+        language = 'en'
+        break
+    case 'es':
+        language = 'es'
+        break
+    case 'cat':
+        language = 'ca'
+        break
+    default:
+        language = 'en'
+        break
+}
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={language}>
     <head>
         <meta charset="UTF-8" />
         <meta
@@ -45,34 +61,46 @@ const { title, lang = 'en' } = Astro.props
         />
 
         <meta name="theme-color" content="#333" />
-        <link rel="canonical" href="https://ximuntion.com" />
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
-        <meta name="url" content="https://ximuntion.com" />
-        <meta
-            name="description"
-            content="Ion Munteanu's personal portfolio to showcase his work and projects."
-        />
-        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.ximuntion.dev" />
         <meta name="author" content="Ion Munteanu" />
         <meta
-            name="keywords"
-            content="Ion Munteanu, Portfolio, Work, Works, Project, Projects"
+            name="description"
+            content="Ion Munteanu's personal portfolio to showcase his work and projects, his skills using different technologies and programming languages and his experience in the field of web development. Made with Astro."
         />
+        <meta
+            name="keywords"
+            content="Ion Munteanu, Portfolio, Work, Works, Project, Projects, Ion, Munteanu, Skills, Experience, Contact, Web Development, Web, Development, Frontend, Backend, Fullstack, Full-stack, Full, Stack, Developer, Engineer, Programmer, Software, Engineer, Software Engineer, Software Developer, Software, Developer, Web Developer, Web, Developer, Web, JavaScript, TypeScript, React, Node, Express, MongoDB, MySQL, PostgreSQL, GraphQL, Apollo, Prisma, Tailwind, CSS, HTML, SASS, SCSS, CSS-in-JS, Styled Components, Emotion, Framer Motion, GSAP, Three.js, WebGL, Webpack, Babel, ESLint, Prettier, Jest, Testing, Test, TDD, BDD, CI, CD, Continuous Integration, Continuous Deployment, Git, GitHub, GitLab, Bitbucket, Vercel, Netlify, AWS, Amazon Web Services, Google Cloud, Google Cloud Platform, GCP, Firebase, Cloud Firestore, Cloud Functions, Cloud Storage, Cloud, Firestore, Functions, Storage, Firebase, Firebase Hosting, Hosting, Firebase, Hosting, Firebase, Authentication, Authentication, Firebase, Authentication, Firebase, Realtime Database"
+        />
+        <meta name="robots" content="index, follow" />
 
-        <meta property="og:title" content="Ion's Portfolio" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ximuntion.com/" />
+        <meta property="og:title" content="Portfolio | Ion Munteanu" />
         <meta
             property="og:description"
-            content="Ion Munteanu's personal portfolio to showcase his work and projects."
+            content="Ion Munteanu's personal portfolio to showcase his work and projects, his skills using different technologies and programming languages and his experience in the field of web development. Made with Astro."
         />
         <meta property="og:image" content="/android-chrome-192x192.png" />
+        <meta property="og:url" content="https://www.ximuntion.dev" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Ion's Portfolio" />
         <meta name="twitter:card" content="/android-chrome-512x512.png" />
 
-        <link rel="alternate" hreflang="en-gb" href="https://ximuntion.com" />
-        <link rel="alternate" hreflang="es" href="https://ximuntion.com/es" />
-        <link rel="alternate" hreflang="ca" href="https://ximuntion.com/cat" />
+        <link
+            rel="alternate"
+            hreflang="en"
+            href="http://www.ximuntion.dev/en"
+        />
+        <link
+            rel="alternate"
+            hreflang="es"
+            href="http://www.ximuntion.dev/es"
+        />
+        <link
+            rel="alternate"
+            hreflang="ca"
+            href="http://www.ximuntion.dev/ca"
+        />
     </head>
     <body
         class="bg-[rgb(220,220,224)] dark:bg-[#101010] text-black dark:text-white"

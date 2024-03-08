@@ -35,7 +35,13 @@ export default function Hero({ lang }: HeroProps) {
                                 className={`group relative text-3xl`}
                             >
                                 <a
-                                    href={social.url}
+                                    href={
+                                        lang === 'es'
+                                            ? social.url_es
+                                            : lang === 'en'
+                                              ? social.url_en
+                                              : social.url_es
+                                    }
                                     title={social.name}
                                     target="_blank"
                                     rel="noreferrer"

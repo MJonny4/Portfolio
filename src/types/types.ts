@@ -10,7 +10,8 @@ export type TLink = {
 export type TSocial = {
     id: string
     name: string
-    url: string
+    url_es?: string
+    url_en?: string
     icon: JSX.Element
 }
 
