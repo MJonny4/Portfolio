@@ -78,7 +78,11 @@ export default function Navbar({ lang }: NavbarProps) {
                             rel="nofollow"
                             tabIndex={index}
                         >
-                            {link.text}
+                            {lang === 'es'
+                                ? link.text_es
+                                : lang === 'cat'
+                                  ? link.text_cat
+                                  : link.text}
                         </a>
                     </li>
                 ))}
