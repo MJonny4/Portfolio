@@ -8,20 +8,22 @@ export const socials = [
     {
         id: uuidv4(),
         name: 'GitHub',
-        url: 'https://github.com/MJonny4',
+        url_es: 'https://github.com/MJonny4',
+        url_en: 'https://github.com/MJonny4',
         icon: <FaGithub />,
     },
     {
         id: uuidv4(),
         name: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/imunteanu04/',
+        url_en: 'https://www.linkedin.com/in/imunteanu04/',
+        url_es: 'https://www.linkedin.com/in/imunteanu04/',
         icon: <FaLinkedin />,
     },
     {
         id: uuidv4(),
         name: 'CV',
-        url_es: CV_ES,
-        url_en: CV_EN,
+        url_en: CV_ES,
+        url_es: CV_EN,
         icon: <BsFillFileEarmarkPdfFill />,
     },
 ]
