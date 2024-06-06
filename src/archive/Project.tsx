@@ -22,7 +22,7 @@ export default function Project({
         >
             <div className="order-2 flex w-full flex-col gap-4 sm:order-1 sm:w-7/12">
                 <h3 className="sm:text-xl lg:text-2xl dark:text-white">
-                    {title}
+                    {title ?? ''}
                 </h3>
                 <p className="text-neutral-700 sm:text-sm lg:text-base xl:text-lg dark:text-neutral-300">
                     {lang === 'es'
@@ -32,7 +32,7 @@ export default function Project({
                           : description}
                 </p>
                 <ul className="flex flex-row flex-wrap justify-start gap-2 text-2xl">
-                    {skills.map((skill: TSkill) => {
+                    {skills?.map((skill: TSkill) => {
                         return (
                             <div className="group relative" key={skill.id}>
                                 <li
@@ -50,41 +50,43 @@ export default function Project({
                     })}
                 </ul>
             </div>
-            <div className="group relative order-1 w-full overflow-hidden rounded-lg shadow-lg sm:order-2 sm:w-5/12">
-                <motion.img
-                    src={image}
-                    alt={title}
-                    className=" w-full rounded-lg object-scale-down lg:h-64 lg:object-cover xl:h-[21rem]"
-                    initial={{ scale: 0 }}
-                    animate={{ rotate: 360, scale: 1 }}
-                    transition={{
-                        type: 'spring',
-                        stiffness: 260,
-                        damping: 20,
-                        delay: 0.1 * id,
-                    }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center gap-8 rounded-lg bg-secondary bg-opacity-90 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-90">
-                    <a
-                        href={urlWeb}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-4xl transition-all duration-300 ease-in-out hover:scale-125 hover:text-tertiary"
-                        title={title}
-                    >
-                        <FaGlobe />
-                    </a>
-                    <a
-                        href={urlGithub}
-                        title={title}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-4xl transition-all duration-300 ease-in-out hover:scale-125 hover:text-tertiary"
-                    >
-                        <FaGithub />
-                    </a>
+            {image && (
+                <div className="group relative order-1 w-full overflow-hidden rounded-lg shadow-lg sm:order-2 sm:w-5/12">
+                    <motion.img
+                        src={image}
+                        alt={title}
+                        className=" w-full rounded-lg object-scale-down lg:h-64 lg:object-cover xl:h-[21rem]"
+                        initial={{ scale: 0 }}
+                        animate={{ rotate: 360, scale: 1 }}
+                        transition={{
+                            type: 'spring',
+                            stiffness: 260,
+                            damping: 20,
+                            delay: 0.1 * id,
+                        }}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center gap-8 rounded-lg bg-secondary bg-opacity-90 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-90">
+                        <a
+                            href={urlWeb}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-4xl transition-all duration-300 ease-in-out hover:scale-125 hover:text-tertiary"
+                            title={title}
+                        >
+                            <FaGlobe />
+                        </a>
+                        <a
+                            href={urlGithub}
+                            title={title}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-4xl transition-all duration-300 ease-in-out hover:scale-125 hover:text-tertiary"
+                        >
+                            <FaGithub />
+                        </a>
+                    </div>
                 </div>
-            </div>
+            )}
         </article>
     )
 }

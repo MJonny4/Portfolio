@@ -4,7 +4,7 @@ import { works } from '../database/Works'
 export default function Experience({ lang }: { lang: string }) {
     return (
         <section
-            className={`rounded-xl bg-gray-100 px-2 shadow-lg md:p-4 dark:bg-neutral-900 [&>*:nth-child(even)]:mb-5 [&>*:nth-child(even)]:border-b-2 [&>*:nth-child(even)]:pb-3`}
+            className={`rounded-xl bg-gray-100 px-2 shadow-lg md:p-4 dark:bg-neutral-900`}
         >
             <h2 className="mb-5 text-left text-xl text-amber-400 md:text-3xl dark:text-primary">
                 {lang === 'es'

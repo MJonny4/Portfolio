@@ -12,7 +12,7 @@ export default function Work({
     lang,
 }: TWork) {
     return (
-        <article className="flex flex-col md:flex-row">
+        <article className="mb-5 flex flex-col md:flex-row">
             <aside className="flex flex-col items-start gap-4 md:w-[8%]">
                 <div className="flex flex-row items-center gap-4">
                     <img

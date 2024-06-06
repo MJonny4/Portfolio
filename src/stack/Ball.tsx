@@ -22,9 +22,9 @@ const Ball = (props: BallProps) => {
             <ambientLight intensity={1} />
             <directionalLight position={[0, 0.5, 1]} />
             <mesh scale={2.75}>
-                <dodecahedronGeometry args={[1, 4]} />
+                <dodecahedronGeometry args={[1, 2]} />
                 <meshStandardMaterial
-                    color="#ff3a30"
+                    color="#FF4D44"
                     polygonOffset
                     polygonOffsetFactor={-5}
                     flatShading

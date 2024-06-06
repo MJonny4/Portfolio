@@ -1,15 +1,30 @@
 import type { TWork } from '../types/types'
 
-import Trilogi from '../images/trilogi.png'
 import Esplai from '../images/esplai.png'
+import OptimaRetail from '../images/optimaretail.png'
+import Trilogi from '../images/trilogi.png'
 
 export const works: TWork[] = [
     {
-        id: crypto.randomUUID(),
+        id: 't2Esplai',
+        imgSrc: OptimaRetail.src,
+        title: 'Web Application Developer',
+        company: 'Optima Retail',
+        date: '03/2024 - Present',
+        description:
+            'Handled backend and frontend tasks in two projects, mainly using Laravel. Developed a web app for store maintenance, streamlining issue resolution.',
+        description_es:
+            'Manejé tareas de backend y frontend en dos proyectos, principalmente utilizando Laravel. Desarrollé una aplicación web para el mantenimiento de tiendas, agilizando la resolución de problemas.',
+        description_cat:
+            'Vaig gestionar tasques de backend i frontend en dos projectes, principalment utilitzant Laravel. Vaig desenvolupar una aplicació web per al manteniment de botigues, agilitzant la resolució de problemes.',
+        bgColor: 'bg-sky-400',
+    },
+    {
+        id: 't2Esplai',
         imgSrc: Esplai.src,
         title: 'Full Stack Developer',
         company: 'Fundación Esplai',
-        date: 'Jan 2024 - Present',
+        date: '01/2024 - 03/2024',
         description:
             'A Full Stack JavaScript Developer Bootcamp, where I am learning everything from the basics of programming to the most advanced topics in web development using front-end and back-end javascript technologies.',
         description_es:
@@ -19,11 +34,11 @@ export const works: TWork[] = [
         bgColor: 'bg-red-500',
     },
     {
-        id: crypto.randomUUID(),
+        id: 't1Trilogi',
         imgSrc: Trilogi.src,
         title: 'Frontend Developer',
         company: 'Trilogi - The eCommerce Agency',
-        date: 'Jul 2022 - Jan 2023',
+        date: '07/2022 - 02/2023',
         description:
             'As a Customer Service worker, I provided solutions to customer issues, utilising my programming skills, particularly in the Front-end environment.',
         description_es:
@@ -34,7 +49,7 @@ export const works: TWork[] = [
 ]
 
 export const ionDesc = {
-    id: crypto.randomUUID(),
+    id: 1337,
     description: `Hey there, I'm Ion, a Full Stack Web Developer. I love
     building all kinds of apps ━ whether they're simple, fancy,
     for the web, or mobile. Always on the lookout for new

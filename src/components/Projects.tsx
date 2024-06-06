@@ -2,8 +2,9 @@ import Project from '../archive/Project'
 import { projects } from '../database/Projects'
 
 import { useState } from 'react'
-import type { TProject } from '../types/types'
 import { FaPlus } from 'react-icons/fa'
+import type { TProject } from '../types/types'
+import Temp from './Temp'
 
 type ProjectsProps = {
     lang: string
@@ -28,6 +29,22 @@ export default function Projects({ lang }: ProjectsProps) {
                     return <Project key={project.id} {...project} />
                 })}
             </div>
+            {/* REMOVE LATER */}
+            <article className="mt-5 flex w-full flex-col items-center rounded-lg bg-neutral-200 p-5 shadow-md transition-all duration-300 ease-in-out hover:shadow-inner sm:flex-row md:flex-row lg:flex-row dark:bg-neutral-800">
+                <div className="order-2 flex w-full flex-col gap-4 sm:order-1">
+                    <h3 className="sm:text-xl lg:text-2xl dark:text-white">
+                        {lang === 'es'
+                            ? 'Más proyectos próximamente'
+                            : lang === 'cat'
+                              ? 'Més projectes properament'
+                              : 'More projects coming soon'}
+                    </h3>
+                    <p className="text-neutral-700 sm:text-sm lg:text-base xl:text-lg dark:text-neutral-300">
+                        <Temp lang={lang} />
+                    </p>
+                </div>
+            </article>
+            {/* END REMOVE LATER */}
             {!showAll && projects.length > 3 && (
                 <button
                     className="mx-auto mb-1 mt-4 flex w-fit cursor-pointer items-center justify-center gap-2 rounded-xl border border-neutral-200 from-[#C01432] to-[#240B34] p-2 text-center shadow-xl transition duration-300 ease-out-expo hover:bg-gradient-to-r hover:text-primary dark:border-neutral-800"

@@ -24,7 +24,9 @@ const Tech = () => {
                         className="h-20 w-20 md:h-28 md:w-28"
                     >
                         <BallCanvas icon={technology.icon} />
-                        <p className="text-center">{technology.name}</p>
+                        <p className="text-center text-sm md:text-base">
+                            {technology.name}
+                        </p>
                     </article>
                 ))}
             </div>
