@@ -32,16 +32,14 @@ export default function Projects({ lang }: ProjectsProps) {
             {/* REMOVE LATER */}
             <article className="mt-5 flex w-full flex-col items-center rounded-lg bg-neutral-200 p-5 shadow-md transition-all duration-300 ease-in-out hover:shadow-inner sm:flex-row md:flex-row lg:flex-row dark:bg-neutral-800">
                 <div className="order-2 flex w-full flex-col gap-4 sm:order-1">
-                    <h3 className="sm:text-xl lg:text-2xl dark:text-white">
+                    <h3 className=" sm:text-xl lg:text-2xl dark:text-primary">
                         {lang === 'es'
                             ? 'Más proyectos próximamente'
                             : lang === 'cat'
                               ? 'Més projectes properament'
                               : 'More projects coming soon'}
                     </h3>
-                    <p className="text-neutral-700 sm:text-sm lg:text-base xl:text-lg dark:text-neutral-300">
-                        <Temp lang={lang} />
-                    </p>
+                    <Temp lang={lang} />
                 </div>
             </article>
             {/* END REMOVE LATER */}
