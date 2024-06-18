@@ -6,7 +6,8 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind({
-    applyBaseStyles: true
-  }), icon(), react()]
+    integrations: [tailwind({
+        applyBaseStyles: true
+    }), icon(), react()],
+    site: 'https://www.ximuntion.dev',
 });
