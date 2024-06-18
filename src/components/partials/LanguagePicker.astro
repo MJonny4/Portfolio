@@ -1,0 +1,84 @@
+---
+import { languages } from '../../i18n/ui'
+import { Icon } from 'astro-icon/components'
+
+const path = Astro.url.origin
+---
+
+<li
+    class='relative grid w-full border-2 border-section bg-white/70 p-3.5 md:px-2 md:py-1 md:rounded-xl md:shadow-md hover:shadow-inner dark:hover:bg-black/15 dark:border-dark-section dark:bg-dark-section/50 hover:text-accent transition-all ease-in-out duration-300 md:border'
+>
+    <button class='text-xl md:text-base inline-flex items-center justify-center gap-2 md:gap-0.5' id='languageSelector'>
+        <Icon name='mdi:translate-variant' class='size-6 md:size-4' />
+    </button>
+    <ul
+        class='absolute top-full left-1/2 -translate-x-1/2 w-[90%] bg-white dark:bg-dark-section dark:border-dark-section mt-1 rounded-xl shadow-md p-2 z-20 hidden transition-transform transform origin-top md:translate-x-0 md:-left-[0.5rem] lg:-left-[2rem] md:w-[6.5rem] text-black dark:text-white'
+        id='languageDropdown'
+    >
+        {
+            Object.entries(languages).map(([lang, label]) => (
+                <li class='text-left w-full'>
+                    <a
+                        href={`${path}${lang === 'en' ? '' : `/${lang}`}`}
+                        class='flex items-center justify-between hover:underline'
+                    >
+                        {label}
+                        {lang === 'en' ? (
+                            <img
+                                src='https://flagdownload.com/wp-content/uploads/Flag_of_England_Flat_Round-64x64.png'
+                                alt='Español'
+                                class='h-4 w-4'
+                            />
+                        ) : (
+                            <img
+                                src='https://flagdownload.com/wp-content/uploads/Flag_of_Spain_Flat_Round-64x64.png'
+                                alt='Español'
+                                class='h-4 w-4'
+                            />
+                        )}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</li>
+
+<script is:inline>
+    const languageSelector = document.getElementById('languageSelector')
+    const languageDropdown = document.getElementById('languageDropdown')
+
+    languageSelector.addEventListener('click', () => {
+        if (languageDropdown.classList.contains('hidden')) {
+            languageDropdown.classList.remove('hidden')
+            gsap.fromTo(
+                languageDropdown,
+                { opacity: 0, y: -10 },
+                { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' },
+            )
+        } else {
+            gsap.to(languageDropdown, {
+                opacity: 0,
+                y: -10,
+                duration: 0.3,
+                ease: 'power2.in',
+                onComplete: () => {
+                    languageDropdown.classList.add('hidden')
+                },
+            })
+        }
+    })
+
+    document.addEventListener('click', (event) => {
+        if (!languageSelector.contains(event.target)) {
+            gsap.to(languageDropdown, {
+                opacity: 0,
+                y: -10,
+                duration: 0.3,
+                ease: 'power2.in',
+                onComplete: () => {
+                    languageDropdown.classList.add('hidden')
+                },
+            })
+        }
+    })
+</script>

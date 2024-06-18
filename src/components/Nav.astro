@@ -1,0 +1,112 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { Icon } from 'astro-icon/components'
+import { links } from '../constants/links'
+import LanguagePicker from './partials/LanguagePicker.astro'
+import ThemePicker from './partials/ThemePicker.astro'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<nav class='w-full'>
+    <button
+        id='menu-button'
+        type='button'
+        class='z-50 fixed top-2 left-2 rounded-full shadow p-1.5 border-2 border-white bg-section md:hidden dark:bg-dark-section dark:border-dark-section'
+    >
+        <Icon name='mdi:menu' class='size-7' />
+        <Icon name='mdi:close' class='size-7 hidden' />
+    </button>
+    <ul
+        id='nav-ul'
+        class={`z-10 hidden fixed top-0 left-0 w-full h-screen border space-y-1 bg-section pt-16 dark:bg-dark-section dark:border-dark-section md:relative md:flex md:p-1.5 md:h-auto md:justify-around md:gap-1.5 md:space-y-0 lg:w-fit lg:mx-auto lg:rounded-2xl lg:mt-2.5`}
+    >
+        {
+            links?.map(({ id, title, link, icon }) => (
+                <li class='grid w-full border-2 border-section bg-white/70 p-3.5 md:px-2 md:py-1 md:rounded-xl md:shadow-md hover:shadow-inner dark:hover:bg-black/15 dark:border-dark-section dark:bg-dark-section/50 hover:text-accent transition-all ease-in-out duration-300 md:border'>
+                    <a
+                        href={link}
+                        class='text-xl md:text-base inline-flex items-center justify-center gap-2 md:gap-0.5'
+                    >
+                        <Icon name={icon ?? 'mdi:link'} class='size-6 md:size-4' />
+                        {/* @ts-ignore: Will export classes later */}
+                        {t(title)}
+                    </a>
+                </li>
+            ))
+        }
+        <ThemePicker />
+        <LanguagePicker />
+    </ul>
+</nav>
+
+<script is:inline>
+    const button = document.getElementById('menu-button')
+    let menuIcon = button.getElementsByTagName('svg')[0]
+    let closeIcon = button.getElementsByTagName('svg')[1]
+    let nav = document.querySelector('#nav-ul')
+    let links = nav.querySelectorAll('li')
+
+    button.addEventListener('click', () => {
+        if (nav.classList.contains('hidden') && window.innerWidth < 768) {
+            nav.classList.remove('hidden')
+            gsap.fromTo(
+                menuIcon,
+                { scale: 1, opacity: 1 },
+                {
+                    scale: 0,
+                    opacity: 0,
+                    duration: 0.3,
+                    ease: 'power4.in',
+                    onComplete: () => {
+                        menuIcon.classList.add('hidden')
+                        closeIcon.classList.remove('hidden')
+                        gsap.fromTo(
+                            closeIcon,
+                            { scale: 0, opacity: 0 },
+                            { scale: 1, opacity: 1, duration: 0.3, ease: 'power2.out' },
+                        )
+                    },
+                },
+            )
+            gsap.fromTo(links, { y: -50, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.2, duration: 0.5 })
+        } else {
+            gsap.fromTo(
+                closeIcon,
+                { scale: 1, opacity: 1 },
+                {
+                    scale: 0,
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power4.in',
+                    onComplete: () => {
+                        closeIcon.classList.add('hidden')
+                        menuIcon.classList.remove('hidden')
+                        gsap.fromTo(
+                            menuIcon,
+                            { scale: 0, opacity: 0 },
+                            { scale: 1, opacity: 1, duration: 0.6, ease: 'power2.out' },
+                        )
+                    },
+                },
+            )
+            gsap.to(links, {
+                y: -50,
+                opacity: 0,
+                stagger: 0.2,
+                duration: 0.5,
+                ease: 'power4.in',
+                onComplete: () => {
+                    nav.classList.add('hidden')
+                },
+            })
+        }
+    })
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768 && nav.classList.contains('hidden')) {
+            gsap.to(links, { y: 0, opacity: 1, stagger: 0.2, duration: 0.5 })
+        }
+    })
+</script>

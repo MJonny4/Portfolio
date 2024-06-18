@@ -1,0 +1,19 @@
+---
+import Mail from '../../images/mail.svg'
+import { Icon } from 'astro-icon/components'
+---
+
+<article class='relative mx-auto h-60 w-60 md:h-80 md:w-80'>
+    <a href='mailto:ion2000m@gmail.com' title='Email' rel='nofollow'>
+        <img
+            src={Mail.src}
+            alt='Mail'
+            class='h-60 w-60 rounded-lg border border-neutral-200 p-4 shadow-lg md:size-80 dark:border-neutral-800'
+        />
+    </a>
+    <aside class='absolute right-0 top-0 -translate-y-1/2 translate-x-1/2 transform rounded-full bg-tertiary p-3'>
+        <a href='mailto:ion2000m@gmail.com' class='text-black dark:text-white' title='Email' rel='nofollow'>
+            <Icon name={"mdi:email"} class='text-3xl md:text-6xl' />
+        </a>
+    </aside>
+</article>

@@ -1,0 +1,99 @@
+---
+import Hero from '../components/Hero.astro'
+import Nav from '../components/Nav.astro'
+import { projects } from '../constants/projects'
+import { works } from '../constants/works'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import Layout from '../layouts/Layout.astro'
+import Project from '../components/design/Project'
+import Work from '../components/design/Work'
+import Tech from '../stack/Tech'
+import Section from '../components/Section.astro'
+import Contact from '../components/design/Contact.astro'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<Layout title='Portfolio | Ion Munteanu'>
+    <header class='mx-auto flex flex-col justify-center items-center md:space-y-6 lg:space-y-8'>
+        <Nav />
+        <Hero />
+    </header>
+
+    <main class='my-5 space-y-5'>
+        <Section title={t('sections.projects')} ' id='projects'>
+            <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                {
+                    projects.map((project) => (
+                        // @ts-ignore
+                        <Project
+                            project={project}
+                            client:idle
+                            desc={t(`projects.${project.title.replace(/\s+/g, '').toLocaleLowerCase().trim()}`)}
+                            web={t('project.web')}
+                            github={t('project.github')}
+                        />
+                    ))
+                }
+            </div>
+        </Section>
+
+        <Section title={t('sections.skills')} id='skills'>
+            <Tech client:idle />
+        </Section>
+
+        <Section title={t('sections.experience')} id='experience'>
+            {
+                works.map((work) => {
+                    // @ts-ignore
+                    return <Work {...work} description={t(`works.${work.id}`)} />
+                })
+            }
+        </Section>
+
+        <Section title={t('sections.contact')} id='contact'>
+            <Contact />
+        </Section>
+    </main>
+
+    <footer
+        class='bg-section/50 dark:bg-dark-section w-full md:rounded-lg md:shadow-md md:max-w-screen-sm lg:max-w-screen-lg mx-auto md:mb-2.5'
+    >
+        <p class='text-center p-2'>&copy; 2024 - Ion Munteanu</p>
+        <a
+            href='#'
+            id='back-to-top'
+            class='fixed right-5 bottom-5 p-2 rounded-full shadow-lg border-2 border-black text-accent transition-all duration-300 ease-in-out z-50 dark:border-white'
+            rel='noopener noreferrer'
+            aria-label='Back to top'
+            title='Back to top'
+            style='display: none'
+        >
+            <svg
+                xmlns='http://www.w3.org/2000/svg'
+                class='h-6 w-6'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+            >
+                <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 10l7-7m0 0l7 7m-7-7v18'
+                ></path>
+            </svg>
+        </a>
+    </footer>
+</Layout>
+
+<script>
+    document.addEventListener('scroll', () => {
+        const backToTop = document.getElementById('back-to-top') as HTMLElement
+        if (window.scrollY > 500) {
+            if (window.innerWidth < 768) {
+                return (backToTop.style.display = 'none')
+            }
+            backToTop.style.display = 'block'
+        } else {
+            backToTop.style.display = 'none'
+        }
+    })
+</script>

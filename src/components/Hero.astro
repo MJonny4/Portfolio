@@ -1,0 +1,57 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { socials } from '../constants/socials'
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import Foto from '../images/foto.png'
+import Tooltip from './partials/Tooltip.astro'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<section
+    id='home'
+    class='flex w-full md:max-w-screen-sm lg:max-w-screen-lg flex-col justify-center gap-2 md:rounded-lg bg-section/50 p-5 md:shadow-md lg:flex-row lg:gap-14 dark:bg-dark-section'
+>
+    <article
+        class='order-2 mx-auto mt-2 flex w-10/12 flex-col items-center justify-center gap-y-1 text-left lg:order-1 lg:mx-0 lg:w-1/2'
+    >
+        <h1 class='w-full text-xl lg:text-4xl dark:lg:shadow-sm'>
+            Ion Munteanu
+        </h1>
+        <h3 class='w-full text-lg text-accent lg:text-2xl dark:text-primary lg:mt-1 dark:lg:shadow-sm'>
+            Full Stack Developer
+        </h3>
+        <p class='mt-1 w-full text-xs md:text-base dark:shadow-sm'>
+            {t('hero.description')}
+        </p>
+        <div class='w-full'>
+            <ul class='mt-5 flex flex-row gap-2'>
+                {
+                    socials.map(({ name, url, icon }) => (
+                        <li class={`group relative text-3xl`}>
+                            <a
+                                href={url !== '-' ? url : t('hero.url')}
+                                title={name}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                class='cursor-pointer transition duration-300 ease-in-out hover:animate-pulse hover:text-accent'
+                            >
+                                <Icon name={icon} class="size-6 md:size-8" />
+                            </a>
+                            <Tooltip name={name} />
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </article>
+    <article class='order-1 flex items-center justify-center lg:order-2'>
+        <Image
+            src={Foto}
+            alt='Ion Munteanu'
+            class='h-52 w-52 rounded-full border-2 border-accent object-cover shadow-md md:h-[18rem] md:w-[18rem] dark:border-primary'
+        />
+    </article>
+</section>
