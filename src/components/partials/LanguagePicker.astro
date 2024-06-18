@@ -19,7 +19,8 @@ const path = Astro.url.origin
             Object.entries(languages).map(([lang, label]) => (
                 <li class='text-left w-full'>
                     <a
-                        href={`${path}${lang === 'en' ? '' : `/${lang}`}`}
+                        // href={`${path}${lang === 'en' ? '' : `/${lang}`}`}
+                        href={`/${lang}/`}
                         class='flex items-center justify-between hover:underline'
                     >
                         {label}
